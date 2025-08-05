@@ -87,7 +87,7 @@ correct = 0
 print("Identify the capital of state : \n")
 
 for state in state_capitals:
-    user_input = input(f"Enter the capital of {state < 4}: ")
+    user_input = input(f"Enter the capital of {state}: ")
     if user_input.strip().lower() == state_capitals[state].lower():
         print("Correct! \n")
         correct += 1
