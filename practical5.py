@@ -1,3 +1,17 @@
+import random
+digit = (1, 2, 3)
+frequency = [0] * 10
+for count in range(1000):
+    random_number = random.randint(1,3)
+    index = digit.index(random_number)
+    frequency[index] += 1
+print("Digit\tOccurance")
+for index in range(len(digit)):
+    print(f"{digit[index]}\t{frequency[index]}")
+print(f"Highest Occurance: {max(digit[index] for index in range(len(digit)) if frequency[index] == max(frequency))}")
+print(f"Lowest Occurance: {min(frequency)}")
+
+
 #Q1
 text = input("Enter a Phrase: ").strip()
 word = text.split()
