@@ -8,8 +8,8 @@ for count in range(1000):
 print("Digit\tOccurance")
 for index in range(len(digit)):
     print(f"{digit[index]}\t{frequency[index]}")
-print(f"Highest Occurance: {max(digit[index] for index in range(len(digit)) if frequency[index] == max(frequency))}")
-print(f"Lowest Occurance: {min(frequency)}")
+print("Highest Digit: ", digit[frequency.index(max(frequency))])
+print('lowest Digit: ', digit[frequency.index(min(frequency))])
 
 
 #Q1
