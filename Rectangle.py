@@ -1,5 +1,5 @@
 class Rectangle:
-    def __init__(self, width=1, height=2):
+    def __init__(self, width = 4, height = 40):
         self.width = width
         self.height = height
     
