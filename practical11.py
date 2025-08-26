@@ -1,59 +1,59 @@
 from tkinter import *
 
-class widgetTest:
+class WidgetsDemo:
     def __init__(self):
         window = Tk()
-        window.title("Widget Test")
+        window.title("Widgets Demo")
 
+        #Add a check button and radio button to frame1
         frame1 = Frame(window)
         frame1.pack()
 
-        #create a variable for two value
-        self.var1 = IntVar()
-        self.var2 = StringVar()
+        self.v1 = IntVar()
+        cbtBold = Checkbutton(frame1, text = "Bold", variable = self.v1, command = self.processCheckbutton)
 
-        #create checkbox buttons and add them to the frame1
-        cbxBold = Checkbutton(frame1, text="Bold", variable = self.var1, command = self.processCheckButton)
+        self.v2 = IntVar()
+        rbRed = Radiobutton(frame1, text = "Red", variable = self.v2, value = 1, command = self.processRadiobutton)
+        rbYellow = Radiobutton(frame1, text = "Yellow", variable = self.v2, value = 2, command = self.processRadiobutton)
 
-        #create radio buttons and add them to the frame1
-        rbred = Radiobutton(frame1, text="Red", bg = "Red",  value = "Red", variable = self.var2, command = self.processRadioButton)
-        rbyel = Radiobutton(frame1, text="Yellow", bg = "Yellow", value = "Yellow", variable = self.var2, command = self.processRadioButton)
-
-        #organize the checkbox and radio buttons in frame1 using grid mmanager
-        cbxBold.grid(row = 1, column = 1)
-        rbred.grid(row = 1, column = 2)
-        rbyel.grid(row = 1, column = 3)
-
-        #create label, an entry and a button, next add to the frame2
+        cbtBold.grid(row = 1, column = 1)
+        rbRed.grid(row = 1, column = 2)
+        rbYellow.grid(row = 1, column = 3)
+        
+        #Add a label, an entry, a button and a message to frame2
         frame2 = Frame(window)
         frame2.pack()
 
-        label = Label(frame2, text = "Enter your name: ")
+        label = Label(frame2, text = "Enter Your Name")
         self.name = StringVar()
         entryName = Entry(frame2, textvariable = self.name)
-        btName = Button(frame2, text = "Submit")
+        btGetName = Button(frame2, text = "Get Name", command = self.processButton)
+        message = Message(frame2, text = "It is a widget demo")
 
-        #organize the label,  text entry and button to the window using grid manager
         label.grid(row = 1, column = 1)
         entryName.grid(row = 1, column = 2)
-        btName.grid(row = 1, column = 3)
+        btGetName.grid(row = 1, column = 3)
+        message.grid(row = 1, column = 4)
 
-        #output text
+        #Add text
         text = Text(window)
         text.pack()
-        text.insert(END, "This is a text widget")
-        text.insert(END, "You can enter text here")
+        text.insert(END, "Tip\nThe best way to learn Tkinter is to read ")
+        text.insert(END, "these carefully designed examples and use them ")
+        text.insert(END, "to create your own applications.\n")
+        text.insert(END, "Tip\nThe best way to learn Tkinter is to read ")
+        text.insert(END, "these carefully designed examples and use them ")
+        text.insert(END, "to create your own applications.\n")
 
-       
-
-        #create window amd event loop
         window.mainloop()
-    #process
-    def processCheckButton(self):
-        print("The check box has been ticked" + (" checked" if self.var1.get() == 1 else " unchecked"))
+        
+    def processCheckbutton(self):
+        print("Check button is " + ("checked" if self.v1.get() == 1 else "unchecked"))
 
-    def processRadioButton(self):
-        print("The radio button has been selected with value: " + self.var2.get())
+    def processRadiobutton(self):
+        print(("Red" if self.v2.get() == 1 else "Yellow") + " is selected" )
 
-#creatw an gui
-widgetTest()
+    def processButton(self):
+        print("Your name is " + self.name.get())
+
+WidgetsDemo()
